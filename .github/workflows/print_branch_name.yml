@@ -1,6 +1,6 @@
 name: Print branch name
 run-name: Print branch name 
-on: push
+on: [push]
 jobs:
   Print-branch-name:
     runs-on: ubuntu-latest
