@@ -1,8 +1,8 @@
 name: Print branch name
-run-name: Print branch name 
-on: [push]
+on: push
 jobs:
   Print-branch-name:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Branch name: test"
+      - name: Print branch name
+        run: echo "Branch name: ${{ github.ref }}"
