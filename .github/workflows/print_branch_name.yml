@@ -5,5 +5,4 @@ jobs:
   Print-branch-name:
     runs-on: ubuntu-latest
     steps:
-      - name: Print branch STEP
       - run: echo "Branch name: test"
