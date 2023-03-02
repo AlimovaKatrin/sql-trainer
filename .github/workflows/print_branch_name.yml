@@ -1,8 +1,7 @@
 name: Print branch name
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 jobs:
   Print-branch-name:
     runs-on: ubuntu-latest
