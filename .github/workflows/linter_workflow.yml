@@ -6,7 +6,7 @@ on:
     
 jobs:
   lint-pull-request:
-    name: Lint pull request
+    name: Lint PR
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
