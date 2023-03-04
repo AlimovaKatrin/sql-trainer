@@ -5,7 +5,7 @@ on:
     types: [opened, reopened]
     
 jobs:
-  Print-branch-name:
+  lint-pull-request:
     name: Lint pull request
     runs-on: ubuntu-latest
     steps:
