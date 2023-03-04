@@ -2,7 +2,6 @@ name: Print branch name
 
 on:
   push:
-    branches: [main,print-branch-name]
     
 jobs:
   Print-branch-name:
