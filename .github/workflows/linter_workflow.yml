@@ -3,7 +3,6 @@ name: Lint PR
 on:
   pull_request:
     types: [opened, reopened]
-  push:
     
 jobs:
   lint-pull-request:
