@@ -25,6 +25,7 @@ jobs:
           path: ~/.npm
 
   test_schedule:
+    needs: create-cache
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -35,7 +36,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: node-modules-cache
-      
+
       - name: Cache node modules
         uses: actions/cache@v3
         with:
