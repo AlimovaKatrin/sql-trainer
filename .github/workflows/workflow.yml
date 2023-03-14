@@ -1,4 +1,4 @@
-name: Different Node versions
+name: cache for different Node versions
 
 on: push
 
