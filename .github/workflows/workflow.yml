@@ -39,7 +39,7 @@ jobs:
 
       - name: Run tests and write file for LTS NODE
         if: ${{ matrix.node-version == 'lts/*' }}
-        run: npm run test 2>&1 | tee lts-test-output.txt
+        run: npm run test | tee lts-test-output.txt
 
       - name: Upload test results for LTS NODE
         if: ${{ matrix.node-version == 'lts/*' }}
@@ -50,7 +50,7 @@ jobs:
 
       - name: Run tests and write file for others versions
         if: ${{ matrix.node-version != 'lts/*' }}
-        run: npm run test 2>&1 | tee ${{ matrix.node-version }}-test-output.txt
+        run: npm run test | tee ${{ matrix.node-version }}-test-output.txt
 
       - name: Upload test results for other versions
         if: ${{ matrix.node-version != 'lts/*' }}
