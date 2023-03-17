@@ -1,4 +1,4 @@
-name: cache for different Node versions
+name: upload test results for different Node versions
 
 on: push
 
@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
+        node-version: ["lts/*", 14.x, 16.x]
 
     steps:
       - name: Checkout code
@@ -37,11 +37,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run tests and write file
-        run: npm run test 2>&1 | tee ${{matrix.node-version}}-test-output.txt
+      - name: Run tests and write file for LTS NODE
+        if: ${{ matrix.node-version == 'lts/*' }}
+        run: npm run test 2>&1 | tee lts-test-output.txt
+
+      - name: Run tests and write file for others
+        if: ${{ matrix.node-version != 'lts/*' }}
+        run: npm run test 2>&1 | tee ${{ matrix.node-version }}-test-output.txt
 
       - name: Upload test results
         uses: actions/upload-artifact@v3
         with:
           name: test-results
-          path: ./${{matrix.node-version}}-test-output.txt
+          path: ./${{ matrix.node-version }}-test-output.txt
