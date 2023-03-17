@@ -38,4 +38,10 @@ jobs:
         run: npm ci
 
       - name: Run tests
-        run: npm run test
+        run: npm run test 2>&1 | tee test-output.txt
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-reaults
+          path: ./test-output.txt
